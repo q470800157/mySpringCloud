@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: register2
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8080/eureka/
+---
+server:
+  port: 8082
+spring:
+  profiles: register1
+---
+server:
+  port: 8083
+spring:
+  profiles: register2

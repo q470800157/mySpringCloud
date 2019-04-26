@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.flower.mapper.FlowerMapper">
+    <select id="getAllFlower" resultType="com.springcloud.flower.bean.Flower">
+        select id,name,price,pid from flower
+        <where>
+            <if test="name != null and !''.equals(name)">
+              and name=#{name}
+            </if>
+        </where>
+    </select>
+</mapper>
