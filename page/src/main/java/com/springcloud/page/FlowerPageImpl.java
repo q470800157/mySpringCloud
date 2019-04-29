@@ -11,7 +11,7 @@ public class FlowerPageImpl implements FlowerPageService {
     @Autowired
     private Flower flower;
     @Override
-    public String getAllFlower() {
+    public String getAllFlower(String name) {
 //        List<Flower> list = new ArrayList<>();
 //        flower.setName("sorry,not get");
 //        list.add(flower);

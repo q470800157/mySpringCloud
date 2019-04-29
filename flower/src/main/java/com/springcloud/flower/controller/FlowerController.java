@@ -30,7 +30,7 @@ public class FlowerController {
 
     @RequestMapping("/flowers.do")
 //    @ModelAttribute
-    public String flowers(@RequestParam(value = "name") String name){
+    public String flowers(@RequestParam(value = "name",required = false) String name){
         List<Flower> flowers = service.getAllFlower(name);
         Map<String,Object> map = new HashMap<>();
         map.put("list",flowers);

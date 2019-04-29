@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -20,9 +21,9 @@ public class FlowerPageController {
         return mv;
     }
     @RequestMapping("/flowers.do")
-    public ModelAndView allFlowers(){
+    public ModelAndView allFlowers(@RequestParam(value = "name",required = false) String name){
         ModelAndView mv= new ModelAndView("flowerList");
-        String json = service.getAllFlower();
+        String json = service.getAllFlower(name);
         Map<String,Object> map = (Map<String,Object>) JSON.parse(json);
         List<Flower> flowers = (List<Flower>)map.get("list");
         mv.addObject("list",flowers);
